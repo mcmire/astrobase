@@ -1,0 +1,14 @@
+
+package_assets: <%= Astrobase::Application.production? ? 'on' : 'off' %>
+compress_assets: <%= Astrobase::Application.production? ? 'on' : 'off' %>
+javascript_compressor: closure
+gzip_assets: true
+
+javascripts:
+  application:
+    - public/javascripts/vendor/ender.js
+    - public/javascripts/app/application.js
+
+stylesheets:
+  application:
+    - public/stylesheets/app/application.css

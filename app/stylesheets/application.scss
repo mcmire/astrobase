@@ -1,0 +1,28 @@
+
+$font-size: 16px;
+$line-height: 1.8em;
+$grid-spacing: 30px;
+$vert-spacing: $font-size * 1.6;
+
+@import "reset";
+@import "base";
+
+//---
+
+$default-font: "Helvetica Neue", Arial, sans-serif;
+$default-color: #333;
+$link-color: #136CC6;
+
+body {
+  font-family: $default-font;
+  color: $default-color;
+}
+
+a {
+  color: $link-color;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+

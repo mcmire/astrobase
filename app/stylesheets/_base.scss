@@ -1,0 +1,219 @@
+
+// Inspiration for this stylesheet:
+//
+// * http://24ways.org/2006/compose-to-a-vertical-rhythm
+//
+// Other resources:
+//
+// * http://meyerweb.com/eric/thoughts/2006/02/08/unitless-line-heights/
+//
+
+$grid-spacing: 30px !default;
+$font-size: 16px !default;
+$line-height: 1.5em !default;
+$vert-spacing: $font-size * 1.5 !default;
+
+.smooth-fonts {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-size: $font-size;
+  line-height: $line-height;
+  margin: $grid-spacing;
+}
+
+a {
+  text-decoration: underline
+}
+
+hr {
+  border: none;
+  color: gray;
+  // background-color: gray;
+  height: 1px;
+  padding: 0;
+  margin: $vert-spacing 0;
+}
+
+p, ul, ol, dl, pre, form, table {
+  margin-bottom: $vert-spacing;
+}
+
+/*==============================================================*/
+/* Headers */
+
+@mixin header($my-font-size) {
+  $my-vert-spacing: $vert-spacing;
+  $adder: $vert-spacing / 4;
+  $padding: 0px;
+  @if $my-font-size >= (1.3 * $font-size) {
+    $padding: 10px;
+  } @else {
+    $padding: 4px;
+  }
+  @while $my-font-size > ($my-vert-spacing - $padding) {
+    $my-vert-spacing: $my-vert-spacing + $adder;
+  }
+  font-size: $my-font-size;
+  vert-spacing: $my-font-size * 1.3;
+  margin-bottom: $vert-spacing;
+}
+
+h1 {
+  @include header(24px);
+}
+
+h2 {
+  @include header(22px);
+}
+
+h3 {
+  @include header(20px);
+}
+
+h4 {
+  @include header(18px);
+}
+
+h5 {
+  @include header(16px);
+}
+
+h6 {
+  font-size: $font-size;
+}
+
+/*==============================================================*/
+/* Block-level elements */
+
+blockquote, dd, ul, ol {
+  margin-left: $font-size * 1.6;
+}
+
+ul {
+  list-style: disc outside
+}
+
+ol {
+  list-style: decimal outside
+}
+
+dt {
+  font-weight: bold;
+  margin-bottom: 3px
+}
+
+audio, video {
+  margin-bottom: $vert-spacing;
+}
+
+/*==============================================================*/
+/* Inline elements */
+
+b {
+  font-weight: bold;
+}
+
+code, kbd, samp, pre, tt, var {
+  font-size: 100%;
+  font-family: monospace
+}
+
+small, sup, sub {
+  font-size: 85%
+}
+
+abbr, acronym {
+  text-transform: uppercase;
+  font-size: 85%;
+  /*letter-spacing: .1em*/
+}
+abbr[title], acronym[title], dfn[title]{
+  cursor: help;
+  border-bottom: 1px dotted black
+}
+
+sup, sub {
+  position: relative;
+}
+sup {
+  vertical-align: top;
+  top: -5px;
+}
+sub {
+  vertical-align: bottom;
+  bottom: -5px
+}
+
+img {
+  border: none
+}
+
+/*==============================================================*/
+/* Forms */
+
+input, select, button {
+  cursor: pointer;
+}
+
+input, textarea, select {
+  font-size: 100%;
+}
+
+input[type=text], input[type=password], textarea, select {
+  border-top: 1px solid #aaa;
+  border-left: 1px solid #aaa;
+  border-bottom: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+}
+
+input[type='text'], input[type='password'] {
+  cursor: text;
+}
+
+input[type='hidden'] {
+  display: none
+}
+
+optgroup {
+  font-family: inherit
+}
+
+form.stylish label.text {
+  display: block;
+}
+
+form.stylish .halves {
+  overflow: hidden;
+  margin-bottom: $vert-spacing;
+}
+
+form.stylish div, form.stylish p {
+  margin-bottom: $vert-spacing;
+}
+form.stylish div div {
+  margin-bottom: 0;
+  padding-right: $font-size * 0.714; /* 10 */
+}
+
+form.stylish .halves div {
+  float: left;
+}
+
+/*==============================================================*/
+/* Tables */
+
+table {
+  border-collapse: collapse;
+}
+
+td, th {
+  padding-right: $font-size * 1.428; /* 20 */
+  text-align: left;
+}
+
+th {
+  font-weight: bold
+}
