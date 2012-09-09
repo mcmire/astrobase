@@ -8,7 +8,7 @@ namespace :assets do
   end
 
   desc "Rebuilds public/javascripts and public/stylesheets from the files in app/ and vendor/"
-  task :build => :environment do
+  task :build => :clean do
     FileUtils.mkdir_p Astrobase.path('public/javascripts'), :verbose => true
     FileUtils.mkdir_p Astrobase.path('public/stylesheets'), :verbose => true
     FileUtils.ln_s '../../vendor/javascripts', Astrobase.path('public/javascripts/vendor'), :verbose => true
