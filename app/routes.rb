@@ -1,7 +1,7 @@
 
 class Astrobase::Application
   get '/' do
-    erb :'main/index'
+    view :'main/index'
   end
 end
 

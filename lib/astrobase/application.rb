@@ -16,6 +16,7 @@ require 'astrobase/trailing_slash_remover'
 module Astrobase
   class Application < Sinatra::Base
     set :views, Astrobase.path('app/views')
+    set :layout, :'layouts/application'
 
     helpers Sinatra::ContentFor
 
