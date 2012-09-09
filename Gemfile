@@ -3,6 +3,9 @@ source :rubygems
 
 ruby '1.9.3'
 
+# Have to define this to create the binstub
+gem 'rake'
+
 gem 'sinatra', '1.3.2'
 
 group :development do
