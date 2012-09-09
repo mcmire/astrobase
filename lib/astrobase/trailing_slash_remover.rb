@@ -1,11 +1,12 @@
 
 module Astrobase
-  # Rather than serving a resource at both /foo and /foo/, I'd rather just serve it
-  # at /foo, and return a 301 for /foo/, so that Google won't think I have separate
-  # pages with the same content, and I won't be keeping duplicate content in caches.
+  # Rather than serving a resource at both /foo and /foo/, I'd rather just serve
+  # it at /foo, and return a 301 for /foo/, so that Google won't think I have
+  # separate pages with the same content, and I won't be keeping duplicate
+  # content in caches.
   #
-  # This middleware handles this. Another strategy would be to handle this in Nginx
-  # instead of middleware.
+  # This middleware handles this. Another strategy would be to handle this in
+  # Nginx instead of middleware.
   #
   # http://flowcoder.com/83
   #

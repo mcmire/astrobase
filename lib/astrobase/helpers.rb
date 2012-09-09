@@ -5,21 +5,35 @@ module Astrobase
       @body_tags ||= []
     end
 
-    def markdown(content, opts={})
-      Kramdown::Document.new(content, opts).to_html
+    def window_title
+      parts = ["Astrobase"]
+      page_title = maybe(:page_title)
+      parts << page_title if page_title
+      parts.join(" - ")
     end
 
-    def full_url(*args)
-      (["http://lostincode.net"] + args).join("/")
+    def stylesheets
+      include_stylesheets(:application)
     end
 
-    def remote_image_path(path)
-      "http://s3.amazonaws.com/lostincode.net/blog/#{path}"
+    def javascripts
+      include_javascripts(:application)
     end
 
-    def line_wrap(text)
-      #text.split(/, /).map {|s| s.gsub(" ", "&nbsp;") }.join(", ")
-      text.split(/, /).join(",<br>")
+    def extra_head_content
+      yield_content(:extra_head_content)
+    end
+
+    def extra_body_content
+      yield_content(:extra_body_content)
+    end
+
+    def extra_javascript
+      yield_content(:extra_javascript)
+    end
+
+    def app_env
+      settings.environment
     end
   end
 end

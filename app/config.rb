@@ -1,0 +1,4 @@
+
+class Astrobase::Application
+  # ...
+end

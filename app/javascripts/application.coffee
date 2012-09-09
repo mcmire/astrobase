@@ -1,4 +1,4 @@
 
-pn = (window.pn ||= {})
+astrobase = (window.astrobase ||= {})
 
 # ....
