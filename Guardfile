@@ -1,4 +1,6 @@
 
+require 'rb-fsevent'
+
 require 'guard/coffeescript'
 require 'guard/coffeescript/runner'
 
@@ -20,4 +22,3 @@ guard 'coffeescript', :input => 'app/javascripts', :output => 'public/javascript
     end
   end
 end
-
