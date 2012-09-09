@@ -4,6 +4,7 @@ namespace :assets do
   task :clean => :environment do
     FileUtils.rm_rf Astrobase.path('public/javascripts'), :verbose => true
     FileUtils.rm_rf Astrobase.path('public/stylesheets'), :verbose => true
+    FileUtils.rm_rf Astrobase.path('public/assets'), :verbose => true
   end
 
   desc "Rebuilds public/javascripts and public/stylesheets from the files in app/ and vendor/"
