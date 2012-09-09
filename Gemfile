@@ -27,6 +27,8 @@ gem 'tagz', '9.5.0'
 
 gem 'logging', '1.7.2'
 
+gem 'sinatra-simple-navigation', '3.5.1'
+
 group :development do
   gem 'heroku', '~> 2.28.0'
 
