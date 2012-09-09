@@ -1,11 +1,11 @@
 
 module Astrobase
   module Helpers
-    def view(sym, opts={})
+    def view(path, opts={})
       if !opts.key?(:layout)
         opts[:layout] = settings.layout
       end
-      erb sym, opts
+      erb path.to_sym, opts
     end
 
     def body_tags

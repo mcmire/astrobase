@@ -51,7 +51,7 @@ module Astrobase
     end
 
     def _render_500
-      erb :'errors/server_error', :layout => :'layouts/application'
+      erb :'errors/internal_server_error', :layout => :'layouts/application'
     end
   end
 
