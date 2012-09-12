@@ -1,0 +1,51 @@
+#!/usr/bin/env ruby
+
+require 'pp'
+require 'optparse'
+require 'irb'
+
+require 'colored'
+
+class Main
+  def initialize
+    @opts = {:environment => 'development'}
+  end
+
+  def run
+    parse_args
+    load_project
+    start_prompt
+  end
+
+  def parse_args
+    parser = OptionParser.new do |parser|
+      parser.banner = "USAGE: #{$0} ENVIRONMENT"
+      parser.on("-h", "--help", "You're looking at it!") do
+        puts parser
+        exit
+      end
+    end
+    parser.parse!(ARGV)
+
+    if environment = ARGV.shift
+      @opts[:environment] = environment.to_sym
+    end
+
+    puts "Starting Astrobase console in " + @opts[:environment].to_s.cyan + " mode."
+  end
+
+  def load_project
+    require 'bundler'
+    Bundler.setup
+
+    require File.expand_path('../../lib/astrobase', __FILE__)
+  end
+
+  def start_prompt
+    ARGV.clear
+    IRB.start
+  end
+end
+
+Main.new.run
+
