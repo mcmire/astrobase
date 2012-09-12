@@ -6,6 +6,10 @@ ruby '1.9.3'
 # Have to define this to create the binstub
 gem 'rake'
 
+gem 'pg', '0.14.1'
+gem 'sequel', '3.39.0'
+gem 'sinatra-sequel', '0.9.0'
+
 group :development do
   gem 'thin', '~> 1.3.1'
 end
@@ -13,7 +17,7 @@ group :production do
   gem 'puma', '1.4.0'
 end
 
-gem 'sinatra', '1.3.2'
+gem 'sinatra', '1.3.3'
 
 gem 'sinatra-contrib', '1.3.1'
 
