@@ -4,7 +4,7 @@ require 'sinatra/base'
 require 'sinatra/content_for'
 require 'sinatra/flash'
 
-#require 'astrobase/reloader'
+require 'astrobase/reloader'
 require 'astrobase/jammit'
 require 'astrobase/logging'
 #require 'astrobase/sass'
@@ -23,7 +23,7 @@ module Astrobase
     enable :sessions
     register Sinatra::Flash
 
-    #register Astrobase::Reloader
+    register Astrobase::Reloader
     register Astrobase::Jammit::Plugin
     register Astrobase::Logging::Plugin
     #register Astrobase::Sass

@@ -7,9 +7,9 @@ module Astrobase
       app.class_eval do
         configure :development do
           register Sinatra::Reloader
-          also_reload Astrobase.path('app/views/**/*.rb')
-          also_reload Astrobase.libpath('astrobase/models/**/*.rb')
-          also_reload Astrobase.libpath('astrobase/presenters/**/*.rb')
+          also_reload Astrobase.path('app/routes.rb')
+          also_reload Astrobase.path('app/models/**/*.rb')
+          also_reload Astrobase.path('app/presenters/**/*.rb')
         end
       end
     end
